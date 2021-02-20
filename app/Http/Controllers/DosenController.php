@@ -8,7 +8,13 @@ use App\Models\Dosen;
 class DosenController extends Controller
 {
     public function getDosen(){
-        $data= Dosen::where('nama','LIKE','%Hetty%')->get();
+        $data= Dosen::where('id','')->get();
         return [$data];
     }
+
+    public function getAllDosen(){
+
+        return Dosen::all();
+    }
 }
+

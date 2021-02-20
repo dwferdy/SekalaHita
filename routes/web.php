@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dosen', [DosenController::class,'getDosen']);
+Route::get('/dosen', [DosenController::class,'getAllDosen']);
+Route::get('/mahasiswa', [MahasiswaController::class,'getAllMahasiswa']);
+Route::get('/matakuliah', [MatakuliahController::class,'getAllMatakuliah']);
+Route::get('/matakuliah/nama', [MatakuliahController::class,'getMatakuliah']);
+
