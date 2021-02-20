@@ -10,4 +10,5 @@ class Dosen extends Model
     use HasFactory;
 
     protected $table = 'dosen_tabel';
+    protected $primaryKey = 'id';
 }

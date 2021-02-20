@@ -14,7 +14,7 @@ class MatakuliahController extends Controller
 
     public function getMatakuliah(){
 
-        $data= Matakuliah::where('nama')->get();
+        $data= Matakuliah::select('nama_mata_kuliah')->get();
         return [$data];
     }
 

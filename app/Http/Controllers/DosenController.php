@@ -7,14 +7,17 @@ use DB;
 use App\Models\Dosen;
 class DosenController extends Controller
 {
-    public function getDosen(){
-        $data= Dosen::where('id','')->get();
-        return [$data];
-    }
+
 
     public function getAllDosen(){
 
         return Dosen::all();
+    }
+
+
+    public function getDosenId($id){
+        $data= Dosen::where('id', $id)->get();
+        return [$data];
     }
 }
 

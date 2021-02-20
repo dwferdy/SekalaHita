@@ -13,8 +13,9 @@ class MahasiswaController extends Controller
 
         return Mahasiswa::all();
     }
-    public function getMahasiswa(){
-        $data= Mahasiswa::where('')->get();
+    public function getMahasiswa5(){
+        $data= Mahasiswa::where('id','<', 6)->get();
         return [$data];
     }
+
 }
