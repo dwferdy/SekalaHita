@@ -10,4 +10,10 @@ class Matakuliah extends Model
     use HasFactory;
 
     protected $table ='matakuliah_tabel';
+    protected $primaryKey ='id';
+    protected $fillable = ['nama_mata_kuliah','sks'];
+
+    public function jadwal(){
+        return $this->hasMany(Jadwal::class, 'mata_kuliah_id');
+    }
 }

@@ -25,10 +25,23 @@ Route::get('/mahasiswa', [MahasiswaController::class,'getAllMahasiswa']);
 Route::get('/matakuliah', [MatakuliahController::class,'getAllMatakuliah']);
 Route::get('/matakuliah/nama', [MatakuliahController::class,'getMatakuliah']);
 //Get dosen by id
-route::get('/dosen/{id}', [DosenController::class, 'getDosenId']);
+Route::get('/dosen/update', [DosenController::class, 'updateDosen']);
+Route::get('/dosen/create', [DosenController::class , 'CreateDosen']);
+Route::get('/dosen/insert', [DosenController::class, 'InsertDosen']);
+Route::get('/dosen/{id}', [DosenController::class, 'getDosenId']);
+Route::get('mahasiswa/update1', [MahasiswaController::class, 'updateMahasiswa1']);
 //get 5 data mahasiswa
-route::get('mahasiswa/5', [MahasiswaController::class, 'getMahasiswa5']);
-route::get('matakuliah/nama', [MatakuliahController::class, 'getMatakuliah']);
+Route::get('mahasiswa/5', [MahasiswaController::class, 'getMahasiswa5']);
+Route::get('matakuliah/nama', [MatakuliahController::class, 'getMatakuliah']);
+Route::get('matakuliah/create', [MatakuliahController::class, 'createMatakuliah']);
+Route::get('mahasiswa/create', [MahasiswaController::class, 'createMahasiswa']);
+Route::get('mahasiswa/update', [MahasiswaController::class, 'updateMahasiswa']);
+Route::get('mahasiswa/delete1', [MahasiswaController::class, 'DeleteMahasiswa1']);
+Route::get('mahasiswa/delete', [MahasiswaController::class, 'DeleteMahasiswa']);
+
+Route::get('matakuliah/jadwal', [MatakuliahController::class, 'matkuljadwal']);
+Route::get('matakuliah/jadwal1', [MatakuliahController::class, 'matkuljadwal1']);
+
 
 
 
