@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Mahasiswa;
+use App\Models\Dosen;
 class MahasiswaController extends Controller
 {
     //Mengambil semua data mahasiswa
@@ -31,29 +32,12 @@ class MahasiswaController extends Controller
             return $data;
     }
 
-    public function UpdateMahasiswa(){
-
-        $mahasiswa = Mahasiswa::find(2);
-
-        $mahasiswa->nama = 'Hoheng';
-        $mahasiswa->save();
-    }
-
-    public function UpdateMahasiswa1(){
-
-        $mahasiswa = Mahasiswa::where ('id', 2)
-        ->update(
-            [
-                'nama'=>'Cok'
-            ]
-            );
-
-            return $mahasiswa;
-    }
+    
+   
 
     public function DeleteMahasiswa(){
         
-        DB::table('mahasiswa_tabel')->where('id', 1)
+        Mahasiswa::table('mahasiswa_tabel')->where('id', 1)
         ->delete();
     }
 
@@ -67,5 +51,28 @@ class MahasiswaController extends Controller
         return $mahasiswa;
     }
     
+
+    public function UpdateMahasiswa1(){
+
+        $mahasiswa = Mahasiswa::where ('id', 3)
+        ->update(
+            [
+                'nama'=>'Santi'
+            ]
+            );
+
+            return $mahasiswa;
+    }
+
+
+
+    //1 dosen dimiliki banyak mahasiswa 1-m
+    
+    public function DosenPembimbing(){
+
+        $dosbim = Dosen::find(3)->DosBim()->get();
+        return $dosbim;
+    }
+
 
 }

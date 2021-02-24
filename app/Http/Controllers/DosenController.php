@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+
 use App\Models\Dosen;
+use DB;
 class DosenController extends Controller
 {
 
@@ -20,19 +21,10 @@ class DosenController extends Controller
         return [$data];
     }
 
-    public function InsertDosen(){
-        $data= DB::table('dosen_tabel')->insert([
-          'nama'=>'Guru', 
-          'adress'=>'Test', 
-          'age'=>'17',
-          'NIK'=>17170981
-
-        ]);
-        return $data;
-    }
+    
 
     public function CreateDosen(){
-        $data= DB::table('dosen_tabel')->insert([
+        $data= Dosen::table('dosen_tabel')->insert([
             [
                 'nama'=>'Heloo', 
           'adress'=>'Test', 
@@ -52,11 +44,21 @@ class DosenController extends Controller
         ]);
             }
         public function updateDosen(){
-            $dosen = DB::table('dosen_tabel')
+            $dosen = Dosen::table('dosen_tabel')
                         ->where('id',1)
                         ->update(['nama'=> 'Test']);
         }
 
+        public function CreateDosen1()
+    {
+        $dosen = new Dosen();
+        $dosen-> nama = 'Setyoooo';
+        $dosen-> adress = 'Jl. Mukti';
+        $dosen-> NIK = '47678566';
+        $dosen-> age = '44';
+        $dosen->save();
+        return $dosen;
+    }
         
     }
 

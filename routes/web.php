@@ -20,13 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/mahasiswa/dosbim', [MahasiswaController::class, 'DosenPembimbing']);
 Route::get('/dosen', [DosenController::class,'getAllDosen']);
 Route::get('/mahasiswa', [MahasiswaController::class,'getAllMahasiswa']);
 Route::get('/matakuliah', [MatakuliahController::class,'getAllMatakuliah']);
 Route::get('/matakuliah/nama', [MatakuliahController::class,'getMatakuliah']);
 //Get dosen by id
 Route::get('/dosen/update', [DosenController::class, 'updateDosen']);
-Route::get('/dosen/create', [DosenController::class , 'CreateDosen']);
+Route::get('/dosen/create', [DosenController::class , 'CreateDosen1']);
 Route::get('/dosen/insert', [DosenController::class, 'InsertDosen']);
 Route::get('/dosen/{id}', [DosenController::class, 'getDosenId']);
 Route::get('mahasiswa/update1', [MahasiswaController::class, 'updateMahasiswa1']);
@@ -41,6 +42,8 @@ Route::get('mahasiswa/delete', [MahasiswaController::class, 'DeleteMahasiswa']);
 
 Route::get('matakuliah/jadwal', [MatakuliahController::class, 'matkuljadwal']);
 Route::get('matakuliah/jadwal1', [MatakuliahController::class, 'matkuljadwal1']);
+
+
 
 
 
