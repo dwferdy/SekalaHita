@@ -39,4 +39,16 @@ class MatakuliahController extends Controller
         $jadwal = Jadwal::find(2)->MataKuliah()->get();
         return $jadwal;
     }
+
+    public function attachMahasiswa(){
+
+        return Matakuliah::find(4)->MatkulMahasiswa()->attach([3,4]);
+    }
+
+    public function detachMahasiswa(){
+
+        return Matakuliah::find(4)->MatkulMahasiswa()->detach();
+    }
+
+    
 }

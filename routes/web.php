@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\SppController;
+
+use App\Models\Mahasiswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +19,10 @@ use App\Http\Controllers\MatakuliahController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/mahasiswa/dosbim', [MahasiswaController::class, 'DosenPembimbing']);
+Route::get('/mahasiswa/form', [MahasiswaController::class, 'form']);
 Route::get('/dosen', [DosenController::class,'getAllDosen']);
 Route::get('/mahasiswa', [MahasiswaController::class,'getAllMahasiswa']);
 Route::get('/matakuliah', [MatakuliahController::class,'getAllMatakuliah']);
@@ -32,6 +34,11 @@ Route::get('/dosen/insert', [DosenController::class, 'InsertDosen']);
 Route::get('/dosen/{id}', [DosenController::class, 'getDosenId']);
 Route::get('mahasiswa/update1', [MahasiswaController::class, 'updateMahasiswa1']);
 //get 5 data mahasiswa
+Route::get('mahasiswa/jadwalku', [MahasiswaController::class, 'GetMatkul']);
+
+Route::get('mahasiswa/tambah', [MahasiswaController::class, 'attachMatkul']);
+
+
 Route::get('mahasiswa/5', [MahasiswaController::class, 'getMahasiswa5']);
 Route::get('matakuliah/nama', [MatakuliahController::class, 'getMatakuliah']);
 Route::get('matakuliah/create', [MatakuliahController::class, 'createMatakuliah']);
@@ -43,6 +50,12 @@ Route::get('mahasiswa/delete', [MahasiswaController::class, 'DeleteMahasiswa']);
 Route::get('matakuliah/jadwal', [MatakuliahController::class, 'matkuljadwal']);
 Route::get('matakuliah/jadwal1', [MatakuliahController::class, 'matkuljadwal1']);
 
+Route::get('matakuliah/attach', [MatakuliahController::class, 'attachMahasiswa']);
+
+Route::get('matakuliah/detach', [MatakuliahController::class, 'detachMahasiswa']);
+Route::get('mahasiswa/detach', [MahasiswaController::class, 'detachMatkul']);
+
+Route::resource('/dosen1', SppController::class);
 
 
 

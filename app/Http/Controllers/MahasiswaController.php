@@ -7,8 +7,39 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use App\Models\Matakuliah;
+
 class MahasiswaController extends Controller
-{
+{   
+
+    public function attachMatkul(){
+
+        return Mahasiswa::find(5)->MatkulMahasiswa()->attach([1,2,3,4]);
+    }
+
+    public function detachMatkul(){
+
+        //get mahasiswa 1,2,3
+
+        $mahasiswa = Mahasiswa::where('id',4)->orWhere('id',5)->get();
+        $mahasiswa = Mahasiswa::whereIn ('id',[4,5])->get();
+
+        //iterasi mahasiswa dalam array
+
+        for($i= 0;$i < count($mahasiswa); $i++){
+
+            $mahasiswa[$i]->MatkulMahasiswa()->detach([4,5]);
+        }
+    }
+    
+    public function syncMatkul(){
+
+        //pertama get dulu semua matkul dari mahasiswa tabel
+
+        $mata_kuliah = Mahasiswa::find(1)->MatkulMahasiswa()->get();
+        $id_matkul = [];
+
+    }
     //Mengambil semua data mahasiswa
     public function getAllMahasiswa(){
 
@@ -73,6 +104,18 @@ class MahasiswaController extends Controller
         $dosbim = Dosen::find(3)->DosBim()->get();
         return $dosbim;
     }
+    
 
+    public function GetMatkul(){
+
+        return Mahasiswa::find(4)->MatkulMahasiswa()->get();
+    }
+
+
+    public function form(){
+
+        $data = Mahasiswa::all();
+        return view ('form', compact('data'));
+    }
 
 }

@@ -12,5 +12,12 @@ class Mahasiswa extends Model
     use SoftDeletes;
     protected $table ='mahasiswa_tabel';
     protected $primaryKey ='id';
-    protected $fillable = ['nama','NIM'];
+    protected $fillable = ['nama','NIM','dosen_id'];
+
+    public function MatkulMahasiswa(){
+
+        return $this->belongsToMany(Matakuliah::class,'mahasiswa_matkul_tabel' ,'mahasiswa_id', 'mata_kuliah_id');
+    }
+
+
 }

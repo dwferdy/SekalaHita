@@ -16,4 +16,9 @@ class Matakuliah extends Model
     public function jadwal(){
         return $this->hasMany(Jadwal::class, 'mata_kuliah_id');
     }
+
+    public function MatkulMahasiswa(){
+
+        return $this->belongsToMany(Mahasiswa::class, 'mahasiswa_matkul_tabel' ,'mata_kuliah_id','mahasiswa_id');
+    }
 }
